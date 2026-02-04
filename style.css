@@ -6,15 +6,15 @@
 }
 
 body {
-    background-color: #faf9f6; /* Off-White (Chic) */
-    color: #1a1a1a; /* Charcoal (Zacht Zwart) */
+    background-color: #faf9f6; 
+    color: #1a1a1a; 
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Geen scrollbalken op het hoofdscherm */
+    overflow: hidden; 
     position: relative;
 }
 
@@ -67,7 +67,6 @@ button {
     background: transparent;
 }
 
-/* JA knop: Solide */
 #yesBtn {
     background-color: #1a1a1a;
     color: #fff;
@@ -78,23 +77,21 @@ button {
     transform: scale(1.02);
 }
 
-/* NEE knop: Lijn (Outline) */
 #noBtn {
     color: #1a1a1a;
     position: absolute;
-    right: 20px; /* Start naast de Ja knop */
-    background-color: #faf9f6; /* Zelfde als achtergrond zodat tekst eronder wegvalt */
+    right: 20px; 
+    background-color: #faf9f6; 
     z-index: 100;
 }
 
-/* Scherm wisseling */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #success-screen {
     height: 100vh;
-    padding-top: 60px; /* Ruimte bovenin */
+    padding-top: 60px;
 }
 
 /* Foto Galerij */
@@ -104,11 +101,10 @@ button {
     flex-direction: column;
     gap: 35px;
     align-items: center;
-    height: 65vh; /* Hoogte voor scrollen */
-    overflow-y: auto; /* Zorgt dat je kan scrollen */
-    padding-bottom: 80px; /* Ruimte onder de laatste foto */
+    height: 65vh; 
+    overflow-y: auto; 
+    padding-bottom: 80px; 
     width: 100%;
-    /* Verberg scrollbar voor strakke look */
     scrollbar-width: none; 
 }
 
@@ -116,20 +112,17 @@ button {
     display: none; 
 }
 
-/* DE GROTE AANPASSING ZIT HIERONDER */
 .photo-gallery img {
-    width: 280px;  /* Vaste breedte */
-    height: 350px; /* Vaste hoogte */
-    object-fit: cover; /* Zorgt dat de foto niet vervormt maar bijsnijdt */
-    
+    width: 280px;  
+    height: 350px; 
+    object-fit: cover; 
     border: 10px solid white;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Luxe schaduw */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
     transform: rotate(-3deg);
-    transition: transform 0.4s ease;
-    opacity: 0; /* Begin onzichtbaar */
+    transition: transform 0.4s ease, opacity 1s ease;
+    opacity: 0; 
 }
 
-/* Om en om draaien */
 .photo-gallery img:nth-child(even) {
     transform: rotate(3deg);
 }
@@ -142,19 +135,21 @@ button {
 /* Animaties */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px); 
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Dit zorgt dat alles met .visible echt zichtbaar wordt */
 .visible {
-    opacity: 1;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
-/* Zorg dat de foto's hun draaiing houden als ze zichtbaar worden */
-img.visible:nth-child(odd) { transform: translateY(0) rotate(-3deg); }
-img.visible:nth-child(even) { transform: translateY(0) rotate(3deg); }
+/* Behoud de rotatie van de foto's */
+img.visible:nth-child(odd) { transform: rotate(-3deg) !important; }
+img.visible:nth-child(even) { transform: rotate(3deg) !important; }
 
-/* Delays voor trap-effect */
+/* Delays */
 .delay-1 { transition-delay: 0.2s; }
 .delay-2 { transition-delay: 0.5s; }
 .delay-3 { transition-delay: 0.8s; }
