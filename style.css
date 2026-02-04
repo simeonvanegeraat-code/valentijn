@@ -48,6 +48,7 @@ p {
 .buttons {
     display: flex;
     justify-content: center;
+    align-items: center; /* Zorgt dat groeiende knop gecentreerd blijft */
     gap: 20px;
     margin-top: 40px;
     position: relative;
@@ -65,16 +66,23 @@ button {
     border: 1px solid #1a1a1a;
     transition: all 0.3s ease;
     background: transparent;
+
+    /* FIX: Voorkomt blauwe gloed en selectie op mobiel */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
 }
 
 #yesBtn {
     background-color: #1a1a1a;
     color: #fff;
+    z-index: 10;
+    white-space: nowrap; /* Voorkomt dat tekst verspringt bij groeien */
 }
 
 #yesBtn:hover {
     background-color: #333;
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
 #noBtn {
@@ -85,6 +93,7 @@ button {
     z-index: 100;
 }
 
+/* Scherm wisseling */
 .hidden {
     display: none !important;
 }
@@ -139,13 +148,11 @@ button {
     transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Dit zorgt dat alles met .visible echt zichtbaar wordt */
 .visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
 
-/* Behoud de rotatie van de foto's */
 img.visible:nth-child(odd) { transform: rotate(-3deg) !important; }
 img.visible:nth-child(even) { transform: rotate(3deg) !important; }
 
