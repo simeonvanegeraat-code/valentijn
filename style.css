@@ -108,7 +108,7 @@ button {
     overflow-y: auto; /* Zorgt dat je kan scrollen */
     padding-bottom: 80px; /* Ruimte onder de laatste foto */
     width: 100%;
-    /* Verberg scrollbar voor strakke look (werkt in de meeste moderne browsers) */
+    /* Verberg scrollbar voor strakke look */
     scrollbar-width: none; 
 }
 
@@ -116,9 +116,12 @@ button {
     display: none; 
 }
 
+/* DE GROTE AANPASSING ZIT HIERONDER */
 .photo-gallery img {
-    width: 85%;
-    max-width: 320px;
+    width: 280px;  /* Vaste breedte */
+    height: 350px; /* Vaste hoogte */
+    object-fit: cover; /* Zorgt dat de foto niet vervormt maar bijsnijdt */
+    
     border: 10px solid white;
     box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Luxe schaduw */
     transform: rotate(-3deg);
@@ -145,7 +148,6 @@ button {
 
 .visible {
     opacity: 1;
-    /* Behoud rotatie bij foto's */
 }
 
 /* Zorg dat de foto's hun draaiing houden als ze zichtbaar worden */
