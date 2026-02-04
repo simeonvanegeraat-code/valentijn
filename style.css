@@ -1,3 +1,4 @@
+/* Basisinstellingen voor een chique uitstraling */
 body {
     margin: 0;
     padding: 0;
@@ -5,19 +6,65 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffe6e6;
-    font-family: 'Arial', sans-serif;
+    /* Een diepe, romantische bordeaux-rode achtergrond (gradient) */
+    background: linear-gradient(135deg, #2c0505 0%, #581212 100%);
+    font-family: 'Montserrat', sans-serif; /* Strak lettertype voor de basis */
     overflow: hidden;
 }
-.container { text-align: center; }
-h1 { color: #ff4d4d; font-size: 3rem; margin-bottom: 50px; }
-button {
-    font-size: 1.5rem; padding: 10px 30px; margin: 10px;
-    border: none; border-radius: 50px; cursor: pointer; transition: transform 0.2s;
+
+/* De "kaart" waar de tekst op staat */
+.container {
+    text-align: center;
+    background-color: #fffcf7; /* Crème-wit in plaats van hard wit */
+    padding: 60px 40px;
+    border-radius: 8px; /* Subtiele ronde hoeken */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4); /* Diepe schaduw voor een 3D effect */
+    border: 1px solid #d4af37; /* Een dun goud randje */
+    max-width: 500px;
+    position: relative; /* Nodig voor de 'No' knop */
 }
-#yesBtn { background-color: #ff4d4d; color: white; }
-#yesBtn:hover { background-color: #e60000; transform: scale(1.1); }
+
+/* De hoofdtitel */
+h1 {
+    font-family: 'Playfair Display', serif; /* Klassiek, sierlijk lettertype */
+    color: #581212; /* Diep bordeauxrood */
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+/* Algemene knopstijl (elegant en rechthoekig) */
+button {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase; /* Hoofdletters voor een serieuze look */
+    letter-spacing: 2px; /* Ruimte tussen de letters */
+    font-size: 0.9rem;
+    padding: 15px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px; /* Minder rond dan eerst */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+/* De JA knop - Goud/Chic */
+#yesBtn {
+    background-color: #d4af37; /* Goudkleur */
+    color: #fffcf7;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+#yesBtn:hover {
+    background-color: #b5932a; /* Iets donkerder goud bij eroverheen gaan */
+    transform: translateY(-3px); /* Komt iets omhoog */
+}
+
+/* De NEE knop - Subtiel */
 #noBtn {
-    background-color: #ffffff; color: #ff4d4d; border: 2px solid #ff4d4d;
-    position: absolute;
+    background-color: transparent;
+    color: #581212;
+    border: 2px solid #581212;
+    position: absolute; /* Zodat hij vrij kan bewegen */
 }

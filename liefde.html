@@ -3,50 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yay!</title>
+    <title>Wonderful!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Extra stijlen specifiek voor deze pagina */
+        /* Specifieke aanpassingen voor deze pagina */
+        /* We overschrijven de H1 kleur naar goud voor op de donkere achtergrond */
+        body {
+             /* Zorgt dat de 'kaart' stijl hier niet geldt, maar de tekst direct op de achtergrond staat */
+            align-items: flex-start;
+            padding-top: 50px;
+        }
+        .container {
+            /* We halen de kaart-stijl weg op deze pagina voor een transparantere look */
+            background-color: transparent;
+            box-shadow: none;
+            border: none;
+            color: #fffcf7;
+        }
+        h1 {
+             font-family: 'Playfair Display', serif;
+             color: #d4af37; /* Goudkleurige tekst */
+             font-size: 3.5rem;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #fffcf7; /* Crème-witte tekst */
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
         .gallery {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
             margin-top: 30px;
         }
         .gallery img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 300px; /* Iets meer portret-formaat voor een klassieke look */
             object-fit: cover;
-            border-radius: 15px;
-            border: 4px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        p {
-            font-size: 1.5rem;
-            color: #d63031;
-            margin-top: 20px;
+            border-radius: 4px;
+            border: 3px solid #d4af37; /* Gouden rand om de foto's */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Yay! I knew you would say yes! ❤️</h1>
-        <p>Can't wait to celebrate with you.</p>
+        <h1>It's a Yes! ❤️</h1>
+        <p>I am so incredibly happy to be yours.</p>
         
         <div class="gallery">
-            <img src="img/foto1.jpg" alt="Ons">
-            <img src="img/foto2.jpg" alt="Samen">
-            <img src="img/foto3.jpg" alt="Liefde">
+            <img src="img/foto1.jpg" alt="Love">
+            <img src="img/foto2.jpg" alt="Us">
+            <img src="img/foto3.jpg" alt="Forever">
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // Start confetti zodra de pagina laadt
+        // Goud en rood confetti
         confetti({
             particleCount: 150,
-            spread: 70,
-            origin: { y: 0.6 }
+            spread: 100,
+            origin: { y: 0.6 },
+            colors: ['#d4af37', '#581212', '#ffffff']
         });
     </script>
 </body>
