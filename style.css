@@ -1,4 +1,4 @@
-/* Basis instellingen voor een schone start */
+/* Basis Reset & Fonts */
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +6,15 @@
 }
 
 body {
-    /* Zacht gebroken wit, veel chiquer dan fel wit */
-    background-color: #faf9f6; 
-    /* Donkergrijze tekst (Charcoal), zachter dan zwart */
-    color: #1a1a1a; 
+    background-color: #faf9f6; /* Off-White (Chic) */
+    color: #1a1a1a; /* Charcoal (Zacht Zwart) */
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Voorkomt scrollbalken als de knop beweegt */
+    overflow: hidden; /* Geen scrollbalken op het hoofdscherm */
     position: relative;
 }
 
@@ -25,47 +23,51 @@ body {
     max-width: 500px;
     padding: 20px;
     z-index: 2;
+    transition: opacity 0.5s ease;
 }
 
-/* De stijlvolle koptekst */
+/* Typografie */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    font-style: italic; /* Geeft het die elegante twist */
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-style: italic;
     line-height: 1.2;
 }
 
 p {
     font-size: 1.1rem;
     font-weight: 300;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     line-height: 1.6;
+    color: #4a4a4a;
 }
 
-/* Knoppen container */
+/* Knoppen */
 .buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 30px;
-    position: relative; /* Nodig voor de bewegende knop */
+    margin-top: 40px;
+    position: relative;
     min-height: 60px;
 }
 
 button {
-    padding: 15px 40px;
+    padding: 15px 45px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: 500;
     cursor: pointer;
     border: 1px solid #1a1a1a;
     transition: all 0.3s ease;
+    background: transparent;
 }
 
-/* De JA knop: Solide en duidelijk */
+/* JA knop: Solide */
 #yesBtn {
     background-color: #1a1a1a;
     color: #fff;
@@ -73,43 +75,68 @@ button {
 
 #yesBtn:hover {
     background-color: #333;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-/* De NEE knop: Minimalistisch (alleen lijntje) */
+/* NEE knop: Lijn (Outline) */
 #noBtn {
-    background-color: transparent;
     color: #1a1a1a;
-    position: absolute; /* Zodat hij vrij kan bewegen */
-    /* We zetten hem initieel rechts naast de Ja knop */
-    right: 20px; 
+    position: absolute;
+    right: 20px; /* Start naast de Ja knop */
+    background-color: #faf9f6; /* Zelfde als achtergrond zodat tekst eronder wegvalt */
+    z-index: 100;
 }
 
-/* De Success pagina (standaard verborgen) */
+/* Scherm wisseling */
 .hidden {
     display: none;
 }
 
-/* Foto galerij stijl */
+#success-screen {
+    height: 100vh;
+    padding-top: 60px; /* Ruimte bovenin */
+}
+
+/* Foto Galerij */
 .photo-gallery {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 35px;
     align-items: center;
-    max-height: 50vh; /* Zorgt dat het scrollbaar is op mobiel */
-    overflow-y: auto;
+    height: 65vh; /* Hoogte voor scrollen */
+    overflow-y: auto; /* Zorgt dat je kan scrollen */
+    padding-bottom: 80px; /* Ruimte onder de laatste foto */
+    width: 100%;
+    /* Verberg scrollbar voor strakke look (werkt in de meeste moderne browsers) */
+    scrollbar-width: none; 
+}
+
+.photo-gallery::-webkit-scrollbar { 
+    display: none; 
 }
 
 .photo-gallery img {
-    width: 80%;
-    max-width: 300px;
-    border: 8px solid white; /* Polaroid effect */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Zachte schaduw */
-    transform: rotate(-2deg); /* Speels scheef */
+    width: 85%;
+    max-width: 320px;
+    border: 10px solid white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Luxe schaduw */
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+    opacity: 0; /* Begin onzichtbaar */
 }
 
-/* Animatie classes om dingen langzaam te laten verschijnen */
+/* Om en om draaien */
+.photo-gallery img:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.photo-gallery img:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 5;
+}
+
+/* Animaties */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -118,12 +145,16 @@ button {
 
 .visible {
     opacity: 1;
-    transform: translateY(0);
+    /* Behoud rotatie bij foto's */
 }
 
-/* Vertragingen voor het inladen */
-.delay-1 { transition-delay: 1s; }
-.delay-2 { transition-delay: 2.5s; }
-.delay-3 { transition-delay: 3.5s; }
-.delay-4 { transition-delay: 4s; }
-.delay-5 { transition-delay: 4.5s; }
+/* Zorg dat de foto's hun draaiing houden als ze zichtbaar worden */
+img.visible:nth-child(odd) { transform: translateY(0) rotate(-3deg); }
+img.visible:nth-child(even) { transform: translateY(0) rotate(3deg); }
+
+/* Delays voor trap-effect */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.5s; }
+.delay-3 { transition-delay: 0.8s; }
+.delay-4 { transition-delay: 1.1s; }
+.delay-5 { transition-delay: 1.4s; }
