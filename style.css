@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe6e6;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+.container { text-align: center; }
+h1 { color: #ff4d4d; font-size: 3rem; margin-bottom: 50px; }
+button {
+    font-size: 1.5rem; padding: 10px 30px; margin: 10px;
+    border: none; border-radius: 50px; cursor: pointer; transition: transform 0.2s;
+}
+#yesBtn { background-color: #ff4d4d; color: white; }
+#yesBtn:hover { background-color: #e60000; transform: scale(1.1); }
+#noBtn {
+    background-color: #ffffff; color: #ff4d4d; border: 2px solid #ff4d4d;
+    position: absolute;
+}
