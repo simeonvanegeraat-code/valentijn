@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra stijlen specifiek voor deze pagina */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 1.5rem;
+            color: #d63031;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yay! I knew you would say yes! ❤️</h1>
+        <p>Can't wait to celebrate with you.</p>
+        
+        <div class="gallery">
+            <img src="img/foto1.jpg" alt="Ons">
+            <img src="img/foto2.jpg" alt="Samen">
+            <img src="img/foto3.jpg" alt="Liefde">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Start confetti zodra de pagina laadt
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    </script>
+</body>
+</html>
